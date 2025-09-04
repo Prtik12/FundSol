@@ -1,0 +1,260 @@
+export const FUNDSOL_IDL = {
+    "address": "H3f8YJFN4zFEVsGdb4gnkYnnyKjLcu2HrHxtimcVDDfH",
+    "metadata": {
+      "name": "fund_sol",
+      "version": "0.1.0",
+      "spec": "0.1.0",
+      "description": "Created with Anchor"
+    },
+    "instructions": [
+      {
+        "name": "create",
+        "discriminator": [24, 30, 200, 40, 5, 28, 7, 119],
+        "accounts": [
+          {
+            "name": "fundraiser",
+            "writable": true,
+            "pda": {
+              "seeds": [
+                {
+                  "kind": "const",
+                  "value": [102, 117, 110, 100, 114, 97, 105, 115, 101, 114]
+                },
+                {
+                  "kind": "account",
+                  "path": "user"
+                }
+              ]
+            }
+          },
+          {
+            "name": "user",
+            "writable": true,
+            "signer": true
+          },
+          {
+            "name": "systemProgram",
+            "address": "11111111111111111111111111111111"
+          }
+        ],
+        "args": [
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "name": "donate",
+        "discriminator": [121, 186, 218, 211, 73, 70, 196, 180],
+        "accounts": [
+          {
+            "name": "fundraiser",
+            "writable": true
+          },
+          {
+            "name": "user",
+            "writable": true,
+            "signer": true
+          },
+          {
+            "name": "systemProgram",
+            "address": "11111111111111111111111111111111"
+          }
+        ],
+        "args": [
+          {
+            "name": "amount",
+            "type": "u64"
+          }
+        ]
+      },
+      {
+        "name": "withdraw",
+        "discriminator": [183, 18, 70, 156, 148, 109, 161, 34],
+        "accounts": [
+          {
+            "name": "fundraiser",
+            "writable": true
+          },
+          {
+            "name": "admin",
+            "writable": true,
+            "signer": true,
+            "relations": ["fundraiser"]
+          }
+        ],
+        "args": []
+      }
+    ],
+    "accounts": [
+      {
+        "name": "Fundraiser",
+        "discriminator": [167, 106, 143, 202, 135, 131, 204, 196]
+      }
+    ],
+    "types": [
+      {
+        "name": "Fundraiser",
+        "type": {
+          "kind": "struct",
+          "fields": [
+            {
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "name": "description",
+              "type": "string"
+            },
+            {
+              "name": "amountDonated",
+              "type": "u64"
+            },
+            {
+              "name": "admin",
+              "type": "pubkey"
+            }
+          ]
+        }
+      }
+    ]
+  } as const;
+  
+  export type FundSolProgram = {
+    "address": "H3f8YJFN4zFEVsGdb4gnkYnnyKjLcu2HrHxtimcVDDfH"
+    "metadata": {
+      "name": "fund_sol"
+      "version": "0.1.0"
+      "spec": "0.1.0"
+      "description": "Created with Anchor"
+    }
+    "instructions": [
+      {
+        "name": "create"
+        "discriminator": [24, 30, 200, 40, 5, 28, 7, 119]
+        "accounts": [
+          {
+            "name": "fundraiser"
+            "writable": true
+            "pda": {
+              "seeds": [
+                {
+                  "kind": "const"
+                  "value": [102, 117, 110, 100, 114, 97, 105, 115, 101, 114]
+                },
+                {
+                  "kind": "account"
+                  "path": "user"
+                }
+              ]
+            }
+          },
+          {
+            "name": "user"
+            "writable": true
+            "signer": true
+          },
+          {
+            "name": "systemProgram"
+            "address": "11111111111111111111111111111111"
+          }
+        ]
+        "args": [
+          {
+            "name": "name"
+            "type": "string"
+          },
+          {
+            "name": "description"
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "name": "donate"
+        "discriminator": [121, 186, 218, 211, 73, 70, 196, 180]
+        "accounts": [
+          {
+            "name": "fundraiser"
+            "writable": true
+          },
+          {
+            "name": "user"
+            "writable": true
+            "signer": true
+          },
+          {
+            "name": "systemProgram"
+            "address": "11111111111111111111111111111111"
+          }
+        ]
+        "args": [
+          {
+            "name": "amount"
+            "type": "u64"
+          }
+        ]
+      },
+      {
+        "name": "withdraw"
+        "discriminator": [183, 18, 70, 156, 148, 109, 161, 34]
+        "accounts": [
+          {
+            "name": "fundraiser"
+            "writable": true
+          },
+          {
+            "name": "admin"
+            "writable": true
+            "signer": true
+            "relations": ["fundraiser"]
+          }
+        ]
+        "args": []
+      }
+    ]
+    "accounts": [
+      {
+        "name": "Fundraiser"
+        "discriminator": [167, 106, 143, 202, 135, 131, 204, 196]
+      }
+    ]
+    "types": [
+      {
+        "name": "Fundraiser"
+        "type": {
+          "kind": "struct"
+          "fields": [
+            {
+              "name": "name"
+              "type": "string"
+            },
+            {
+              "name": "description"
+              "type": "string"
+            },
+            {
+              "name": "amountDonated"
+              "type": "u64"
+            },
+            {
+              "name": "admin"
+              "type": "pubkey"
+            }
+          ]
+        }
+      }
+    ]
+  };
+  
+  export type FundraiserAccount = {
+    name: string;
+    description: string;
+    amountDonated: import("@coral-xyz/anchor").BN;
+    admin: import("@solana/web3.js").PublicKey;
+  };
