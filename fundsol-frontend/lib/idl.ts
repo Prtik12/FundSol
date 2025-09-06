@@ -1,6 +1,6 @@
 export const FUNDSOL_IDL = {
-    "address": "H3f8YJFN4zFEVsGdb4gnkYnnyKjLcu2HrHxtimcVDDfH",
     "metadata": {
+      "address": "H3f8YJFN4zFEVsGdb4gnkYnnyKjLcu2HrHxtimcVDDfH",
       "name": "fund_sol",
       "version": "0.1.0",
       "spec": "0.1.0",
